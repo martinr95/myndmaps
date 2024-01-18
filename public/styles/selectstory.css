@@ -1,0 +1,49 @@
+.storyselect {
+  background-image: url(../images/portrait/w001p.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.storyselectOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.8;
+  background-color: var(--primary-dark);
+}
+
+.storyselectTitle {
+  margin: 0 40px;
+  z-index: 99;
+}
+
+.storyselectParagraph {
+  text-align: justify;
+  margin: 20px 40px;
+  text-shadow: 0 0 0 rgb(0, 0, 0), 0 0 1px transparent;
+  z-index: 99;
+}
+
+.selectstoryBtn {
+  margin-top: 20px;
+  width: 160px;
+  height: 60px;
+  background-color: var(--secondary-main);
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 99;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}

@@ -1,13 +1,17 @@
 const adventuresData = {
   woodlands: {
+    storyTitle: "woodlands",
     storyName: "woodlands",
     storyId: "w",
+    storyIdLong: "o0001",
     author: "youngladino",
     coverimgPortrait: "./public/images/portrait/w001p.png",
     coverimgLandscape: "./public/images/landscape/w001l.png",
     storyText:
       "you start your journey on a peaceful and open path through a cold forest. The sky is blue, the air is crispy. In front of you a massive mountain range emerges from the depths of a turquoise glacier lake. Serenity is only interrupted by the sound of nails being hammered in the old planks on an ominous cabin not so distant in the woods. As you shiver, you are being watched from high up.",
     storyDescription: "",
+    author: "youngladino",
+    dateAdded: "2024-01-18",
     adventuresInside: {
       w001: {
         adventureName: "a nice day",
@@ -75,6 +79,39 @@ const adventuresData = {
         adventurePrior: "w201",
         adventureAfter: [],
         creepy: true,
+        author: "youngladino",
+        dateAdded: "2024-01-18",
+      },
+    },
+  },
+  futuristicCity: {
+    storyTitle: "futuristicCity",
+    storyName: "A day in the city of the future",
+    storyId: "fc",
+    storyIdLong: "o0002",
+    author: "youngladino",
+    coverimgPortrait: "./public/images/portrait/fc001p.png",
+    coverimgLandscape: "./public/images/landscape/fc001l.png",
+    storyText:
+      "As dawn breaks over the futuristic city, you awaken in a high-tech bedroom atop a towering skyscraper. Outside, flying cars glide through the morning sky, signaling an adventure-filled day ahead. A mysterious holographic message flickers into view, hinting at secrets deep within the city. Unbeknownst to you, this day will embark you on an extraordinary journey, threading through wonders and dangers, reshaping your destiny.",
+    storyDescription: "",
+    author: "youngladino",
+    dateAdded: "2024-01-18",
+    adventuresInside: {
+      fc001: {
+        adventureName: "good future morning",
+        adventureId: "fc001",
+        adventureStoryId: "fc",
+        adventureLevel: 0,
+        adventureBranch: 0,
+        adventureNumber: 1,
+        adventureimgPortrait: "./public/images/portrait/fc001p.png",
+        adventureimgLandscape: "./public/images/landscape/fc001l.png",
+        adventureText: "lorem",
+        adventureDescription: "loremlong",
+        adventurePrior: "",
+        adventureAfter: ["fc101"],
+        creepy: false,
         author: "youngladino",
         dateAdded: "2024-01-18",
       },

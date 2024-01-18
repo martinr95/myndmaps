@@ -1,0 +1,17 @@
+***alpha_1-0***
+First working prototype
+
+***alpha_2-0***
+Fixes with smaller bugs, added exploration,
+
+***alpha_2-1***
+added content,
+added time to localstorage so that it saves also on refresh,
+BIG CHANGE: added story selection screen with jquery logic,
+added new story futuristicCity and logic to script.js to handle multiple stories with "userStoryTitle".
+
+**TODO**
+~redesign homescreen
+~added metadata on homescreen
+~added homescreen with choices of story
+~added desktop compatability

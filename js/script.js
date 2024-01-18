@@ -14,11 +14,17 @@ let defaultOverlayOpacity = 1;
 //
 //SET LEVEL (get it from localstorage -so like a savefile - or display 0)
 let score = localStorage.getItem("level") || 0;
-let [seconds, minutes] = [0, 0];
+
+let seconds = 0;
+let minutes = 0;
 let displayLevel = document.getElementById("displayLevel");
 displayLevel.innerHTML = "Level" + " " + score;
 // OTHER LEVEL BASED
-let userStoryId = "w";
+let userTitle = localStorage.getItem("userStoryTitle") || "woodlands";
+console.log(userTitle);
+let userStoryTitle = userTitle;
+let userStoryId = localStorage.getItem("userStoryId") || "w";
+console.log(userStoryId);
 let userBranch = 0;
 let userAdventureNumber = 1;
 
@@ -47,7 +53,11 @@ let currentAdventureId = userStoryId + score + userBranch + userAdventureNumber;
 //
 function stopwatch() {
   seconds++;
-  if (seconds == 60) {
+  localStorage.setItem("seconds", seconds);
+  localStorage.setItem("minutes", minutes);
+  seconds = localStorage.getItem("seconds");
+  minutes = localStorage.getItem("minutes");
+  if (seconds == 2) {
     seconds = 0;
     minutes++;
 
@@ -55,7 +65,7 @@ function stopwatch() {
     storyOverlay.style.opacity = defaultOverlayOpacity;
     console.log(defaultOverlayOpacity);
     console.log(storyOverlay.style.opacity);
-    if (minutes == 25) {
+    if (minutes == 4) {
       score++;
       displayLevel.innerHTML = "Level" + " " + score;
       localStorage.setItem("level", score);
@@ -79,6 +89,14 @@ function watchStart() {
   if (timer !== null) {
     clearInterval(timer);
   }
+  if (localStorage.getItem("seconds") && localStorage.getItem("minutes")) {
+    seconds = localStorage.getItem("seconds");
+    minutes = localStorage.getItem("minutes");
+  } else {
+    seconds = 0;
+    minutes = 0;
+  }
+
   timer = setInterval(stopwatch, 1000);
 }
 
@@ -89,6 +107,8 @@ function watchStop() {
 
 function watchReset() {
   [seconds, minutes] = [0, 0];
+  localStorage.setItem("seconds", seconds);
+  localStorage.setItem("minutes", minutes);
   clearInterval(timer);
 }
 
@@ -102,6 +122,7 @@ function changeScore() {
 function resetAll() {
   localStorage.clear();
   score = 0;
+
   displayLevel.innerHTML = "Level" + " " + score;
   displayMinutes.innerHTML = "00";
   displaySeconds.innerHTML = "00";
@@ -117,14 +138,16 @@ function setAdventureId() {
 
 function updateAdventure() {
   //Background
+  console.log(adventuresData[userStoryTitle]);
   let currentBackground =
-    adventuresData.woodlands.adventuresInside[currentAdventureId]
+    adventuresData[userStoryTitle].adventuresInside[currentAdventureId]
       .adventureimgPortrait;
   console.log(currentBackground);
   storyBg.style.backgroundImage = 'url("' + currentBackground + '")';
   //text
   let currentText =
-    adventuresData.woodlands.adventuresInside[currentAdventureId].adventureText;
+    adventuresData[userStoryTitle].adventuresInside[currentAdventureId]
+      .adventureText;
   addendumText.innerHTML = currentText;
 }
 
