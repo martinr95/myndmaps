@@ -40,6 +40,9 @@ $(document).ready(function () {
       localStorage.clear();
       localStorage.setItem("userStoryId", value.storyId);
       localStorage.setItem("userStoryTitle", value.storyTitle);
+      localStorage.setItem("userStoryName", value.storyName);
+      // Update the innerHTML of h5 with class 'displayLevelName'
+
       // Redirect to index.html
       window.location.href = "index.html";
     });

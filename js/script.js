@@ -31,8 +31,11 @@ let userAdventureNumber = 1;
 //
 //
 const timerWrapper = document.querySelector(".timer-wrapper");
+
 let displayMinutes = document.getElementById("displayMinutes");
 let displaySeconds = document.getElementById("displaySeconds");
+let displayMinutes2 = document.getElementById("displayMinutes2");
+let displaySeconds2 = document.getElementById("displaySeconds2");
 let timer = null;
 //
 const playBtn = document.getElementById("play-btn");
@@ -42,6 +45,7 @@ const exploreBtn = document.getElementById("explore-btn");
 const deleteBtn = document.getElementById("delete-btn");
 const stopwatchBtn = document.getElementById("stopwatch-btn");
 //
+const playscreen = document.querySelector(".playscreen");
 const addendumPage = document.querySelector(".addendum-page");
 const addendumText = document.getElementById("addendum-text");
 
@@ -57,7 +61,7 @@ function stopwatch() {
   localStorage.setItem("minutes", minutes);
   seconds = localStorage.getItem("seconds");
   minutes = localStorage.getItem("minutes");
-  if (seconds == 60) {
+  if (seconds == 4) {
     seconds = 0;
     minutes++;
 
@@ -65,7 +69,7 @@ function stopwatch() {
     storyOverlay.style.opacity = defaultOverlayOpacity;
     console.log(defaultOverlayOpacity);
     console.log(storyOverlay.style.opacity);
-    if (minutes == 25) {
+    if (minutes == 2) {
       score++;
       displayLevel.innerHTML = "Level" + " " + score;
       localStorage.setItem("level", score);
@@ -83,6 +87,8 @@ function stopwatch() {
 
   displaySeconds.innerHTML = s;
   displayMinutes.innerHTML = m;
+  displaySeconds2.innerHTML = s;
+  displayMinutes2.innerHTML = m;
 }
 
 function watchStart() {
@@ -117,6 +123,8 @@ function changeScore() {
   displayLevel.innerHTML = "Level" + " " + score;
   displayMinutes.innerHTML = "00";
   displaySeconds.innerHTML = "00";
+  displayMinutes2.innerHTML = "00";
+  displaySeconds2.innerHTML = "00";
 }
 
 function resetAll() {
@@ -126,6 +134,8 @@ function resetAll() {
   displayLevel.innerHTML = "Level" + " " + score;
   displayMinutes.innerHTML = "00";
   displaySeconds.innerHTML = "00";
+  displayMinutes2.innerHTML = "00";
+  displaySeconds2.innerHTML = "00";
   defaultOverlayOpacity = 1;
   storyOverlay.style.opacity = defaultOverlayOpacity;
   watchReset();
@@ -162,6 +172,7 @@ playBtn.addEventListener("click", function () {
   updateAdventure();
 
   watchStart();
+  playscreen.classList.remove("hidden");
 });
 pauseBtn.addEventListener("click", function () {
   watchStop();
@@ -188,4 +199,8 @@ stopwatchBtn.addEventListener("click", function () {
   storyOverlay.classList.remove("hidden");
   window.scrollTo({ top: 0, behavior: "smooth" });
   addendumPage.classList.add("hidden");
+});
+
+playscreen.addEventListener("click", function () {
+  playscreen.classList.add("hidden");
 });

@@ -8,14 +8,34 @@
     <link rel="stylesheet" href="./public/styles/navigation.css" />
     <link rel="stylesheet" href="./public/styles/style.css" />
     <link rel="stylesheet" href="./public/styles/timer.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="main-wrapper mobile">
       <div class="card">
+        <div class="playscreen hidden">
+          <h1
+            class="displayTime"
+            id="displayMinutes2"
+            style="font-size: 2rem; opacity: 0.3"
+          >
+            00
+          </h1>
+          <h1 style="opacity: 0.3">:</h1>
+          <h2
+            class="displayTime"
+            id="displaySeconds2"
+            style="font-size: 2rem; opacity: 0.3"
+          >
+            00
+          </h2>
+        </div>
         <div class="story-overlay"></div>
         <div class="story-bg"></div>
         <section class="timer-wrapper">
           <h3 id="displayLevel">Level 0</h3>
+          <h5 id="displayLevelName"></h5>
+
           <h1 class="displayTime" id="displayMinutes">00</h1>
           <h2 class="displayTime" id="displaySeconds">00</h2>
 
@@ -139,6 +159,16 @@
       </article>
     </div>
     <script type="module" src="./js/adventures.js"></script>
+    <script src="./js/selectstory.js"></script>
+
     <script type="module" src="./js/script.js" defer></script>
+    <script>
+      $(document).ready(function () {
+        var storyTitle = localStorage.getItem("userStoryTitle");
+        if (storyTitle) {
+          $("#displayLevelName").text(storyTitle); // Update using ID selector
+        }
+      });
+    </script>
   </body>
 </html>
