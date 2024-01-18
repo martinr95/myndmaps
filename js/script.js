@@ -57,7 +57,7 @@ function stopwatch() {
   localStorage.setItem("minutes", minutes);
   seconds = localStorage.getItem("seconds");
   minutes = localStorage.getItem("minutes");
-  if (seconds == 2) {
+  if (seconds == 60) {
     seconds = 0;
     minutes++;
 
@@ -65,7 +65,7 @@ function stopwatch() {
     storyOverlay.style.opacity = defaultOverlayOpacity;
     console.log(defaultOverlayOpacity);
     console.log(storyOverlay.style.opacity);
-    if (minutes == 4) {
+    if (minutes == 25) {
       score++;
       displayLevel.innerHTML = "Level" + " " + score;
       localStorage.setItem("level", score);
