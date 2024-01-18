@@ -28,12 +28,17 @@ const timerWrapper = document.querySelector(".timer-wrapper");
 let displayMinutes = document.getElementById("displayMinutes");
 let displaySeconds = document.getElementById("displaySeconds");
 let timer = null;
+//
 const playBtn = document.getElementById("play-btn");
 const resetBtn = document.getElementById("reset-btn");
 const pauseBtn = document.getElementById("pause-btn");
 const exploreBtn = document.getElementById("explore-btn");
 const deleteBtn = document.getElementById("delete-btn");
+const stopwatchBtn = document.getElementById("stopwatch-btn");
+//
 const addendumPage = document.querySelector(".addendum-page");
+const addendumText = document.getElementById("addendum-text");
+
 let currentAdventureId = userStoryId + score + userBranch + userAdventureNumber;
 
 //
@@ -46,7 +51,7 @@ function stopwatch() {
     seconds = 0;
     minutes++;
 
-    defaultOverlayOpacity = defaultOverlayOpacity - 0.005;
+    defaultOverlayOpacity = defaultOverlayOpacity - 0.01;
     storyOverlay.style.opacity = defaultOverlayOpacity;
     console.log(defaultOverlayOpacity);
     console.log(storyOverlay.style.opacity);
@@ -92,8 +97,6 @@ function changeScore() {
   displayLevel.innerHTML = "Level" + " " + score;
   displayMinutes.innerHTML = "00";
   displaySeconds.innerHTML = "00";
-  defaultOverlayOpacity = 98;
-  storyOverlay.style.opacity = defaultOverlayOpacity;
 }
 
 function resetAll() {
@@ -102,7 +105,7 @@ function resetAll() {
   displayLevel.innerHTML = "Level" + " " + score;
   displayMinutes.innerHTML = "00";
   displaySeconds.innerHTML = "00";
-  defaultOverlayOpacity = 98;
+  defaultOverlayOpacity = 1;
   storyOverlay.style.opacity = defaultOverlayOpacity;
   watchReset();
 }
@@ -110,6 +113,19 @@ function resetAll() {
 function setAdventureId() {
   currentAdventureId = userStoryId + score + userBranch + userAdventureNumber;
   console.log(currentAdventureId);
+}
+
+function updateAdventure() {
+  //Background
+  let currentBackground =
+    adventuresData.woodlands.adventuresInside[currentAdventureId]
+      .adventureimgPortrait;
+  console.log(currentBackground);
+  storyBg.style.backgroundImage = 'url("' + currentBackground + '")';
+  //text
+  let currentText =
+    adventuresData.woodlands.adventuresInside[currentAdventureId].adventureText;
+  addendumText.innerHTML = currentText;
 }
 
 //
@@ -120,12 +136,8 @@ function setAdventureId() {
 
 playBtn.addEventListener("click", function () {
   setAdventureId();
+  updateAdventure();
 
-  let currentBackground =
-    adventuresData.woodlands.adventuresInside[currentAdventureId]
-      .adventureimgPortrait;
-  console.log(currentBackground);
-  storyBg.style.backgroundImage = 'url("' + currentBackground + '")';
   watchStart();
 });
 pauseBtn.addEventListener("click", function () {
@@ -137,10 +149,20 @@ resetBtn.addEventListener("click", function () {
   console.log(seconds, minutes);
 });
 exploreBtn.addEventListener("click", function () {
+  watchReset();
+  changeScore();
   timerWrapper.classList.add("hidden");
   storyOverlay.classList.add("hidden");
   addendumPage.classList.remove("hidden");
 });
 deleteBtn.addEventListener("click", function () {
   resetAll();
+});
+stopwatchBtn.addEventListener("click", function () {
+  timerWrapper.classList.remove("hidden");
+  defaultOverlayOpacity = 1;
+  storyOverlay.style.opacity = defaultOverlayOpacity;
+  storyOverlay.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  addendumPage.classList.add("hidden");
 });
