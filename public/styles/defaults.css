@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap");
+
+:root {
+  --white: #f4f4f4;
+  --font-black: #333;
+  --primary-dark: #264653;
+  --primary-very-dark: rgb(19, 35, 41);
+  --secondary-main: #fd6232;
+  --secondary-light: #e0c3fc;
+}
+
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  html {
+    width: 100vw;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+  }
+
+  .card {
+    max-height: 100vh !important;
+    width: 100vw;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .hidden {
+    display: none;
+  }
+}

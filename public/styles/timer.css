@@ -1,0 +1,55 @@
+@media only screen and (max-width: 700px) {
+  .timer-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px 20px;
+    position: absolute;
+    top: 0;
+  }
+
+  .timer-controls {
+    width: 100%;
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    align-items: center;
+  }
+
+  .timer-button {
+    cursor: pointer;
+    z-index: 99;
+    place-self: center;
+    fill: var(--secondary-main);
+  }
+
+  .timer-button:hover {
+    opacity: 40%;
+  }
+
+  .displayTime {
+    font-size: 6rem;
+  }
+
+  #reset-btn {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  #play-btn {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  #pause-btn {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  #explore-btn {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  #delete-btn {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+}

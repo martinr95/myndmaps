@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mindmaps</title>
+    <link rel="stylesheet" href="./public/styles/defaults.css" />
+    <link rel="stylesheet" href="./public/styles/navigation.css" />
+    <link rel="stylesheet" href="./public/styles/style.css" />
+    <link rel="stylesheet" href="./public/styles/timer.css" />
+  </head>
+  <body>
+    <div class="main-wrapper mobile">
+      <div class="card">
+        <div class="story-overlay"></div>
+        <div class="story-bg"></div>
+        <section class="timer-wrapper">
+          <h3 id="displayLevel">Level 0</h3>
+          <h1 class="displayTime" id="displayMinutes">00</h1>
+          <h2 class="displayTime" id="displaySeconds">00</h2>
+
+          <div class="timer-controls">
+            <svg
+              class="timer-button"
+              id="reset-btn"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Filled"
+              viewBox="0 0 24 24"
+              width="80"
+              height="80"
+            >
+              <path
+                d="M15,7H10.17V5.414A2,2,0,0,0,6.756,4L.876,9.879a3,3,0,0,0,0,4.242L6.756,20a2,2,0,0,0,3.414-1.414V17H16a6.006,6.006,0,0,1,6,6,1,1,0,0,0,2,0V16A9.01,9.01,0,0,0,15,7Z"
+              />
+            </svg>
+            <svg
+              class="timer-button"
+              id="play-btn"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Filled"
+              viewBox="0 0 24 24"
+              width="80"
+              height="80"
+            >
+              <path
+                d="M20.492,7.969,10.954.975A5,5,0,0,0,3,5.005V19a4.994,4.994,0,0,0,7.954,4.03l9.538-6.994a5,5,0,0,0,0-8.062Z"
+              />
+            </svg>
+            <svg
+              class="timer-button"
+              id="pause-btn"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Filled"
+              viewBox="0 0 24 24"
+              width="80"
+              height="80"
+            >
+              <path
+                d="M6.5,0A3.5,3.5,0,0,0,3,3.5v17a3.5,3.5,0,0,0,7,0V3.5A3.5,3.5,0,0,0,6.5,0Z"
+              />
+              <path
+                d="M17.5,0A3.5,3.5,0,0,0,14,3.5v17a3.5,3.5,0,0,0,7,0V3.5A3.5,3.5,0,0,0,17.5,0Z"
+              />
+            </svg>
+
+            <svg
+              class="timer-button"
+              id="explore-btn"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Layer_1"
+              data-name="Layer 1"
+              viewBox="0 0 24 24"
+              width="80"
+              height="80"
+            >
+              <path
+                d="M2.751,15H0V14A7.634,7.634,0,0,1,4.065,7.169a10.975,10.975,0,0,1,3.9-1.09q-.889,1.1-1.783,2.338A40.582,40.582,0,0,0,2.751,15Zm12.832,2.813A40.582,40.582,0,0,1,9,21.249V24h1a7.634,7.634,0,0,0,6.831-4.065,10.975,10.975,0,0,0,1.09-3.9Q16.826,16.92,15.583,17.813ZM24,2.991c-.133,4.353-3.267,8.67-9.582,13.2A34.995,34.995,0,0,1,9,19.063V18.5A3.517,3.517,0,0,0,5.5,15H4.937A34.912,34.912,0,0,1,7.813,9.583C12.332,3.278,16.642.144,20.988,0,23.154,0,24,.885,24,2.991ZM18,8.5a2.5,2.5,0,0,0-5,0A2.5,2.5,0,0,0,18,8.5ZM1.374,23.785c1.126-.2,3.841-.758,4.748-1.664h0a3,3,0,0,0-4.243-4.243C.973,18.785.414,21.5.215,22.626l-.247,1.406Z"
+              />
+            </svg>
+            <svg
+              class="timer-button"
+              id="delete-btn"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              id="Capa_1"
+              x="0px"
+              y="0px"
+              viewBox="0 0 512 512"
+              style="enable-background: new 0 0 512 512"
+              xml:space="preserve"
+              width="80"
+              height="80"
+            >
+              <path
+                d="M448,85.333h-66.133C371.66,35.703,328.002,0.064,277.333,0h-42.667c-50.669,0.064-94.327,35.703-104.533,85.333H64   c-11.782,0-21.333,9.551-21.333,21.333S52.218,128,64,128h21.333v277.333C85.404,464.214,133.119,511.93,192,512h128   c58.881-0.07,106.596-47.786,106.667-106.667V128H448c11.782,0,21.333-9.551,21.333-21.333S459.782,85.333,448,85.333z    M234.667,362.667c0,11.782-9.551,21.333-21.333,21.333C201.551,384,192,374.449,192,362.667v-128   c0-11.782,9.551-21.333,21.333-21.333c11.782,0,21.333,9.551,21.333,21.333V362.667z M320,362.667   c0,11.782-9.551,21.333-21.333,21.333c-11.782,0-21.333-9.551-21.333-21.333v-128c0-11.782,9.551-21.333,21.333-21.333   c11.782,0,21.333,9.551,21.333,21.333V362.667z M174.315,85.333c9.074-25.551,33.238-42.634,60.352-42.667h42.667   c27.114,0.033,51.278,17.116,60.352,42.667H174.315z"
+              />
+            </svg>
+          </div>
+        </section>
+      </div>
+
+      <article class="addendum-page card hidden">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. A possimus
+          inventore aspernatur blanditiis, libero perspiciatis et. Quod dolor
+          maxime nobis commodi accusantium? Modi eveniet laboriosam, similique
+          incidunt quo illum ad!
+        </p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          id="Layer_1"
+          data-name="Layer 1"
+          viewBox="0 0 24 24"
+          width="80"
+          height="80"
+        >
+          <path
+            d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12,12-5.383,12-12S18.617,0,12,0Zm4,13h-4c-.552,0-1-.447-1-1V6c0-.553,.448-1,1-1s1,.447,1,1v5h3c.553,0,1,.447,1,1s-.447,1-1,1Z"
+          />
+        </svg>
+      </article>
+    </div>
+    <script type="module" src="./js/adventures.js"></script>
+    <script type="module" src="./js/script.js" defer></script>
+  </body>
+</html>
