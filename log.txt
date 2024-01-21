@@ -9,6 +9,8 @@ added content,
 added time to localstorage so that it saves also on refresh,
 BIG CHANGE: added story selection screen with jquery logic,
 added new story futuristicCity and logic to script.js to handle multiple stories with "userStoryTitle".
+added screen overlay so that the timer doesnt bother
+added switch to toggle test mode
 
 **TODO**
 ~redesign homescreen
